@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi San Valentín ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Reproductor de música -->
+    <audio id="background-music" loop>
+        <source src="resources/Djo - End Of Beginning.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Sobre y carta -->
+    <div class="envlope-wrapper">
+        <div id="envelope" class="close">
+            <div class="front flap"></div>
+            <div class="front pocket"></div>
+            <div class="letter">
+                <div class="letter-content">
+                    <p id="letter-text"></p>
+                </div>
+            </div>
+            <div class="hearts">
+                <div class="heart a1"></div>
+                <div class="heart a2"></div>
+                <div class="heart a3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transición blanca -->
+    <div id="white-transition"></div>
+
+    <!-- Reloj -->
+    <div id="clock-container">
+        <h2>Nos conocimos hace...</h2>
+        <div id="clock">
+            <span id="days">0</span> días 
+            <span id="hours">0</span> horas 
+            <span id="minutes">0</span> minutos 
+            <span id="seconds">0</span> segundos
+        </div>
+    </div>
+
+    <!-- Mensaje intermedio -->
+    <div id="intermediate-message">
+        <p>Y fue lo mejor que me pasó, porque no podría estar más enamorado. Alguna brujería extraña me hiciste vos pendeja.</p>
+    </div>
+
+    <!-- Pregunta final -->
+    <div id="valentine-question">
+        <h1 id="question-title">¿Querés ser mi San Valentín?</h1>
+        <div class="buttons">
+            <button id="btn-yes">SÍ</button>
+            <button id="btn-no">NO</button>
+        </div>
+        <div id="final-message"></div>
+        <button id="btn-restart">Volver al inicio</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
