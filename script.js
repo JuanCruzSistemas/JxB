@@ -9,24 +9,22 @@ let noClickCount = 0;
 let clockInterval;
 let backgroundMusic;
 
-// Iniciar secuencia al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
-    // Iniciar música
+    //Iniciar música
     backgroundMusic = document.getElementById('background-music');
     
-    // Intentar reproducir automáticamente
+    //Reproducir automáticamente
     const playPromise = backgroundMusic.play();
     
     if (playPromise !== undefined) {
         playPromise.then(() => {
-            // Reproducción iniciada exitosamente
+            //Reproducción iniciada exitosamente
             console.log('Música iniciada');
         }).catch(error => {
-            // La reproducción automática fue bloqueada
-            // Crear un botón para que el usuario inicie la música
+            //La reproducción automática fue bloqueada. Crear un botón para que inicie la música
             console.log('Reproducción automática bloqueada, esperando interacción del usuario');
             
-            // Intentar reproducir con cualquier interacción
+            //Intentar reproducir con cualquier toque a la página
             document.body.addEventListener('click', function startMusic() {
                 backgroundMusic.play();
                 document.body.removeEventListener('click', startMusic);
@@ -42,11 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
 function startSequence() {
     const envelope = document.getElementById('envelope');
     
-    // Abrir sobre
+    //Abrir sobre
     envelope.classList.add('open');
     envelope.classList.remove('close');
     
-    // Después de 3 segundos, sacar la carta completamente
+    //Después de 3 segundos, sacar la carta completamente
     setTimeout(() => {
         pullOutLetter();
     }, 3000);
@@ -59,7 +57,7 @@ function pullOutLetter() {
     letter.classList.add('full-out');
     envelope.classList.add('fully-open');
     
-    // Escribir el texto de la carta
+    //Escribir el texto de la carta
     setTimeout(() => {
         typeWriter(letterText, 0);
     }, 800);
@@ -72,9 +70,9 @@ function typeWriter(text, index) {
         letterTextElement.textContent += text.charAt(index);
         setTimeout(() => {
             typeWriter(text, index + 1);
-        }, 50); // Velocidad de escritura
+        }, 50); //Velocidad de escritura, después la cambio sino
     } else {
-        // Esperar 5 segundos después de terminar de escribir
+        //Esperar 5 segundos después de terminar de escribir
         setTimeout(() => {
             startWhiteTransition();
         }, 5000);
@@ -85,7 +83,7 @@ function startWhiteTransition() {
     const whiteTransition = document.getElementById('white-transition');
     whiteTransition.classList.add('active');
     
-    // Después de la transición, mostrar directamente el reloj
+    //Después de la transición, mostrar el reloj
     setTimeout(() => {
         showClock();
     }, 2000);
@@ -96,10 +94,10 @@ function showClock() {
     
     clockContainer.classList.add('visible');
     
-    // Iniciar el reloj
+    //Iniciar el reloj
     startClock();
     
-    // Después de 5 segundos, mostrar mensaje intermedio
+    //Después de 5 segundos, mostrar mensaje
     setTimeout(() => {
         showIntermediateMessage();
     }, 5000);
@@ -130,7 +128,7 @@ function showIntermediateMessage() {
     
     intermediateMessage.classList.add('visible');
     
-    // Después de 6 segundos, mostrar pregunta final
+    //Después de 6 segundos, mostrar pregunta final, la de si/no
     setTimeout(() => {
         showValentineQuestion();
     }, 6000);
@@ -159,12 +157,12 @@ function setupButtons() {
     btnNo.addEventListener('click', function() {
         noClickCount++;
         
-        // Hacer el NO más pequeño y el SÍ más grande
+        //Hacer el NO más pequeño y el SÍ más grande
         btnNo.style.transform = `scale(${1 - (noClickCount * 0.15)})`;
         btnNo.style.opacity = `${1 - (noClickCount * 0.2)}`;
         btnYes.style.transform = `scale(${1 + (noClickCount * 0.1)})`;
         
-        // Si ya no es visible, ocultarlo
+        //Si ya no es visible, ocultarlo
         if (noClickCount >= 5) {
             btnNo.style.display = 'none';
         }
@@ -182,19 +180,17 @@ function setupButtons() {
         
         finalMessage.classList.add('visible');
         
-        // Mostrar el botón de reinicio después de 3 segundos
+        //Mostrar el botón de reinicio después de 3 segundos
         setTimeout(() => {
             btnRestart.classList.add('visible');
         }, 3000);
     });
     
-    // Funcionalidad del botón de reinicio
+    //Funcionalidad del botón de reinicio
     btnRestart.addEventListener('click', function() {
-        // Detener la música
         backgroundMusic.pause();
         backgroundMusic.currentTime = 0;
         
-        // Recargar la página
         location.reload();
     });
 }

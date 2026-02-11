@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* ===== SOBRE Y CARTA ===== */
+/* Sobre y carta */
 .envlope-wrapper {
     height: 100vh;
     display: flex;
@@ -131,7 +131,7 @@ body {
     opacity: 1;
 }
 
-/* ===== CORAZONES ===== */
+/* Corazones del inicio del sobre */
 .hearts {
     position: absolute;
     top: 90px;
@@ -218,7 +218,7 @@ body {
     }
 }
 
-/* ===== TRANSICIÓN BLANCA ===== */
+/* Transición en blanco */
 #white-transition {
     position: fixed;
     top: 0;
@@ -234,7 +234,7 @@ body {
     width: 100%;
 }
 
-/* ===== RELOJ ===== */
+/* Reloj */
 #clock-container {
     position: fixed;
     top: -300px;
@@ -283,7 +283,7 @@ body {
     font-size: 36px;
 }
 
-/* ===== MENSAJE INTERMEDIO ===== */
+/* Mensaje */
 #intermediate-message {
     position: fixed;
     top: 50%;
@@ -318,7 +318,7 @@ body {
     font-weight: 500;
 }
 
-/* ===== PREGUNTA SAN VALENTÍN ===== */
+/* Pregfunta San Valentín */
 #valentine-question {
     position: fixed;
     top: 50%;
